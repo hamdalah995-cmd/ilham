@@ -1,0 +1,13 @@
+const reveal=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.1});
+reveal.forEach(x=>observer.observe(x));
+const nav=document.querySelector('nav'),menu=document.querySelector('.menu');
+if(menu)menu.onclick=()=>nav.classList.toggle('open');
+document.querySelectorAll('nav a').forEach(a=>a.onclick=()=>nav.classList.remove('open'));
+const sections=document.querySelectorAll('section[id]'),links=document.querySelectorAll('nav a');
+const navObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.hash==='#'+e.target.id))}),{threshold:.45});
+sections.forEach(s=>navObserver.observe(s));
+const glow=document.querySelector('.glow');
+addEventListener('pointermove',e=>{if(glow){glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'}});
+const visual=document.querySelector('.visual');
+addEventListener('pointermove',e=>{if(visual&&innerWidth>900){visual.style.transform=`translate(${(e.clientX/innerWidth-.5)*7}px,${(e.clientY/innerHeight-.5)*7}px)`}});
