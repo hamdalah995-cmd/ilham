@@ -1,0 +1,10 @@
+{
+  "name": "OutfitPOS Pro v4",
+  "short_name": "OutfitPOS",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#0b1220",
+  "description": "Aplikasi kasir dan manajemen toko outfit",
+  "icons": []
+}
